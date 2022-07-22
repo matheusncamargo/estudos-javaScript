@@ -185,3 +185,170 @@ if (money) {
  JS Fundamentals PT 01 - III
 
  ****************************/
+
+
+/*
+Equality Operators == vs ===
+== faz conversão entre string e number (evitar ao máximo)
+!=
+=== não faz conversão (estrito)
+!==
+*/
+/*
+const favNumber = Number(prompt("Digite seu número favorito"));
+console.log(favNumber);
+
+if (favNumber === 10) {
+  console.log("Número é igual a dez");
+}
+
+if (favNumber !== 25) console.log("Não é 25");
+
+// Lecture
+
+const numNeighbours = Number(
+  prompt("How many neighbours countries does your country have?")
+);
+
+if (numNeighbours === 1) {
+  console.log("Only 1 border");
+} else if (numNeighbours > 1) {
+  console.log("More than 1 border");
+} else {
+  console.log("No border");
+}
+
+// Logical Operators (&&, ||, !)
+
+const hasDriveLicence = true; // A
+const hasGoodVision = true; // B
+const isTired = false; // C
+
+if (hasDriveLicence && hasGoodVision && !isTired) {
+  console.log("You can drive!");
+} else {
+  console.log("Someone else shoud drive!");
+}
+/*
+
+// Lecture
+
+if (population < 50 && language === "English" && !isIsland) {
+  console.log(`Você deveria morar em ${country}.`);
+} else {
+  console.log(`${country} não bate com seus critérios`);
+}
+
+/********************
+ Coding Challenge #3
+ ********************/
+/*
+const doScore = (5 + 110 + 110) / 3;
+const koScore = (110 + 110 + 110) / 3;
+
+if (doScore > koScore && doScore > 100) {
+  console.log("Dolphins Wins!🏆");
+} else if (koScore > doScore && koScore > 100) {
+  console.log("Koalas Wins! 🏆");
+} else if (koScore === doScore && koScore > 100) {
+  console.log("It's a draw! Both win 🏆");
+} else {
+  console.log("No one wins the trophy");
+}
+
+
+// Switch statement
+
+const day = "Tuesday";
+
+switch (day) {
+  case "Monday":
+    console.log("Fazer compras");
+    break;
+  case "Tuesday":
+    console.log("Academia");
+    break;
+  case "Wednesday":
+    console.log("Arrumar a casa");
+    break;
+  case "Thursday":
+  case "Friday":
+    console.log("Estudar");
+    break;
+  default:
+    console.log("Não é um dia útil");
+}
+
+
+if (day === "Monday") {
+  console.log("Fazer compras");
+} else if (day === "Tuesday") {
+  console.log("Academia");
+} else if (day === "Wednesday") {
+  console.log("Arrumar a casa");
+} else if (day === "Thursday" || day === "Friday") {
+  console.log("Estudar");
+} else {
+  console.log("Não é um dia útil");
+}
+
+// Lecture
+
+const language2 = "Hindi";
+
+switch (language2) {
+  case "Chinese":
+  case "Mandarin":
+    console.log("A mais falada disparado!");
+    break;
+  case "Spanish":
+    console.log("2º lugar em número de falantes");
+    break;
+  case "Hindi":
+    console.log("número 4");
+    break;
+  case "Arabic":
+    console.log("Quinta mais falada");
+    break;
+  default:
+    console.log("É muito falada também");
+    break;
+}
+
+// The Conditional (Ternary) Operator
+
+const age = 19;
+
+age >= 18
+  ? console.log("Gosto de tomar vinho 🍷")
+  : console.log("Gosto de beber água ");
+
+const drink = age >= 18 ? "vinho 🍷" : "água";
+console.log(drink);
+
+console.log(`Gosto de beber ${age >= 18 ? "vinho 🍷" : "água"}`);
+
+// Lecture
+
+const avg = population > 10 ? "acima da média" : "abaixo da média";
+
+console.log(
+  `A população de ${country} está ${
+    population > 10 ? "acima da média" : "abaixo da média"
+  }`
+);
+
+/********************
+ Coding Challenge #4
+ ********************/
+/*
+const bill = 1000;
+
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+console.log(tip);
+
+console.log(
+  `A conta deu ${bill}, a gorjeta será de ${tip}, o total foi de ${bill + tip}`
+);
+*/
+
