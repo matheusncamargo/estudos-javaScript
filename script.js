@@ -1,3 +1,5 @@
+"use strict";
+
 /*****************************  
  
  JS Fundamentals PT 01
@@ -352,3 +354,225 @@ console.log(
 );
 */
 
+/*****************************  
+ 
+ JS Fundamentals PT 02
+
+ ****************************/
+
+// #01 Functions
+/*
+function userLogin() {
+  console.log("My nickname is MthNogueira");
+}
+
+userLogin();
+
+function fruitProcessor(oranges, apples) {
+  console.log(oranges, apples);
+  const juice = `O suco é feito com ${oranges} laranjas e ${apples} maças.`;
+  return juice;
+}
+
+const orangeJuice = fruitProcessor(10, 0);
+
+console.log(orangeJuice);
+console.log(fruitProcessor(5, 2));
+
+// #01 Lecture
+function describeCountry(country, population, capitalCity) {
+  const describe = `${country} tem ${population} milhões de habitantes e sua capital é ${capitalCity}`;
+  return describe;
+}
+
+const brazil = describeCountry("Brazil", 220, "Brasília");
+const venezuela = describeCountry("Venezuela", 50, "Caracas");
+const uruguai = describeCountry("Uruguai", 30, "Montevideo");
+
+console.log(brazil);
+console.log(venezuela);
+console.log(uruguai);
+
+// #02 Functions Declarations vs Expressions
+
+// Function Declaration (pode ser chamada antes de ser produzida)
+function calcAge1(birthYear) {
+  return 2022 - birthYear;
+}
+const age = calcAge1(1990);
+
+// Function Expression (produces values)
+const calcAge2 = function (birthYear) {
+  return 2030 - birthYear;
+};
+const age2 = calcAge2(1994);
+
+// #02 Lecture
+// Function Declaration
+function percentageOfWorld1(country, population) {
+  const world = 7900;
+  const percentage = (population / world) * 100;
+  return `${country} tem ${percentage}% da população mundial`;
+}
+
+const brazilPercentage = percentageOfWorld1("Brazil", 220);
+const venezuelaPercentage = percentageOfWorld1("Venezuela", 50);
+const uruguaiPercentage = percentageOfWorld1("Uruguai", 30);
+
+console.log(brazilPercentage, uruguaiPercentage, venezuelaPercentage);
+
+// Function Expression
+
+const percentageOfWorld2 = function (country, population) {
+  const world = 7900;
+  const percentage = (population / world) * 100;
+  return `${country} tem ${percentage}% da população mundial`;
+};
+
+const brazilPercentage2 = percentageOfWorld2("Brazil", 220);
+const venezuelaPercentage2 = percentageOfWorld2("Venezuela", 50);
+const uruguaiPercentage2 = percentageOfWorld2("Uruguai", 30);
+
+console.log(brazilPercentage2, uruguaiPercentage2, venezuelaPercentage2);
+
+const percentageOfWorld3 = (country, population) => {
+  const world = 7900;
+  const percentage = (population / world) * 100;
+  return `${country} tem ${percentage}% da população mundial`;
+};
+console.log(percentageOfWorld3("Brasil", 220));
+
+// #03 Arrow Functions (functions shorter and faster to write)
+
+const calcAge3 = (birthYear) => 2022 - birthYear;
+
+const age3 = calcAge3(1994);
+console.log(age3);
+
+// Arrows functions mais complexas
+
+const yearsUntillRetirement = (birthYear, firstName) => {
+  const age4 = 2022 - birthYear;
+  const retirement = 65 - age4;
+  // return retirement;
+  return `${firstName} vai se aposentar em ${retirement} anos`;
+};
+
+console.log(yearsUntillRetirement(1994, "Matheus"));
+console.log(yearsUntillRetirement(1996, "Armando"));
+
+// #03 Lecture - Arrow Function
+
+const percentageOfWorld3 = (country, population) => {
+  const world = 7900;
+  const percentage = (population / world) * 100;
+  return `${country} tem ${percentage}% da população mundial`;
+};
+
+const brazilPercentage3 = percentageOfWorld3("Brazil", 220);
+const venezuelaPercentage3 = percentageOfWorld3("Venezuela", 50);
+const uruguaiPercentage3 = percentageOfWorld3("Uruguai", 30);
+
+console.log(brazilPercentage3, uruguaiPercentage3, venezuelaPercentage3);
+
+// #04 Functions calling other functions
+
+function fruitCut(fruit) {
+  return fruit * 4;
+}
+
+function fruitProcessor(oranges, apples) {
+  const orangesPieces = fruitCut(oranges);
+  const applesPieces = fruitCut(apples);
+
+  const juice = `O suco é feito com ${orangesPieces} pedaços de laranjas e ${applesPieces} pedaços de maças.`;
+  return juice;
+}
+
+console.log(fruitProcessor(1, 2));
+
+// #04 Lecture
+
+function describePopulation(country, population) {
+  const descPop = percentageOfWorld1(country, population); // chama outra função
+  return descPop;
+}
+
+const brazilDescribePopulation = describePopulation("Brazil", 220);
+const venezuelaDescribePopulation = describePopulation("Venezuela", 50);
+const uruguaiDescribePopulation = describePopulation("Uruguai", 30);
+
+console.log(
+  brazilDescribePopulation,
+  venezuelaDescribePopulation,
+  uruguaiDescribePopulation
+);
+
+// #05 Review Functions
+// Ver vídeo 037 em 10:48 -> fala sobre os tipos de funções
+
+function calcAge(year) {
+  return 2022 - year;
+}
+
+const yearsUntillRetirement = function (birthYear, firstName) {
+  const age = calcAge(birthYear);
+  const retirement = 65 - age;
+
+  if (retirement > 0) {
+    return `${firstName} vai se aposentar em ${retirement} anos.`;
+  } else {
+    return `${firstName} já se aposentou.`;
+  }
+};
+
+console.log(yearsUntillRetirement(1994, "Matheus"));
+console.log(yearsUntillRetirement(1950, "Armando"));
+
+
+// #01 Coding Challenge
+
+// Average calculation
+const calcAverage = (score1, score2, score3) => {
+  const avg = (score1 + score2 + score3) / 3;
+  return avg;
+};
+
+// Winner calculation
+function checkWinner(avgDolphins, avgKoala) {
+  let winner = "Nobody";
+  let avgWinner = -1;
+  let avgLoser = -1;
+
+  if (avgDolphins >= avgKoala * 2) {
+    winner = "Dolphins";
+    avgWinner = avgDolphins;
+    avgLoser = avgKoala;
+  } else if (avgKoala >= avgDolphins * 2) {
+    winner = "Koala";
+    avgWinner = avgKoala;
+    avgLoser = avgDolphins;
+  }
+
+  return `${winner} win (${avgWinner} vs ${avgLoser})`;
+}
+
+// Input
+const avgDolphins2 = calcAverage(44, 23, 71);
+const avgKoala2 = calcAverage(65, 54, 49);
+
+const avgDolphins3 = calcAverage(85, 54, 41);
+const avgKoala3 = calcAverage(23, 34, 27);
+
+// Test Winner
+const winner1 = checkWinner(avgDolphins2, avgKoala2);
+const winner2 = checkWinner(avgDolphins3, avgKoala3);
+
+// Output
+console.log(avgDolphins2, avgKoala2);
+console.log(avgDolphins3, avgKoala3);
+
+console.log(winner1);
+console.log(winner2);
+
+/*
