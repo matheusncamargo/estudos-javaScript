@@ -5,7 +5,7 @@
  JS Fundamentals PT 01
 
  ****************************/
-
+/*
 // Values and Variables
 const country = "Brazil";
 const continent = "Latin America";
@@ -17,7 +17,7 @@ const isIsland = false;
 let language;
 language = "Portuguese";
 
-/*
+
 // Let, const (ES6) and var (old)
 
 //Let -> Can change later
