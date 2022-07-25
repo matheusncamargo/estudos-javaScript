@@ -575,4 +575,4 @@ console.log(avgDolphins3, avgKoala3);
 console.log(winner1);
 console.log(winner2);
 
-/*
+*/
