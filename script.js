@@ -576,3 +576,144 @@ console.log(winner1);
 console.log(winner2);
 
 */
+/*****************************  
+ 
+ JS Fundamentals PT 02 - II
+
+ ****************************/
+/*
+// #01 Data Structure: Arrays
+
+// Array 1
+const supermercado = ["feijão", "arroz", "leite", "macarrão"];
+
+console.log(supermercado);
+console.log(supermercado[2]);
+
+console.log(supermercado.length);
+console.log(supermercado[supermercado.length - 1]);
+
+supermercado[2] = "batata";
+console.log(supermercado);
+
+// Array 2
+const firstName = "Matheus";
+const matheus = [firstName, "copywriter", 2022 - 1994, supermercado];
+console.log(matheus);
+
+// Exercise
+const calcAge = function (birthYear) {
+  return 2022 - birthYear;
+};
+
+//Array
+const years = [1994, 1995, 1996, 1980, 1955];
+
+//1st method
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+//2nd method
+const ages = [
+  calcAge(years[0]),
+  calcAge(years[1]),
+  calcAge(years[years.length - 1]),
+];
+console.log(ages);
+
+
+// #01 - Lecture: Introduction to Arrays
+
+//Percentage of World
+function percentageOfWorld1(country, population) {
+  const world = 7900;
+  const percentage = (population / world) * 100;
+  return `${country} tem ${percentage}% da população mundial`;
+}
+
+//1
+const populations = ["Irlanda", 50, "Inglaterra", 110, "Espanha", 25];
+console.log(populations);
+console.log(populations.length === 4);
+
+//2
+const percentages = [
+  percentageOfWorld1(populations[0], populations[1]),
+  percentageOfWorld1(populations[2], populations[3]),
+  percentageOfWorld1(populations[4], populations[5]),
+];
+console.log(percentages);
+
+
+// #02 Basic Array Operations (Methods)
+
+// Add elements
+const supermercado = ["feijão", "arroz", "leite", "macarrão"];
+console.log(supermercado);
+
+const novoSupermercado = supermercado.push("doce de leite"); // retorna o tamanho do array novo
+
+console.log(supermercado);
+console.log(novoSupermercado);
+
+supermercado.unshift("banana");
+console.log(supermercado);
+
+// Remove elements
+supermercado.pop();
+const removido = supermercado.pop();
+
+console.log(supermercado);
+console.log(removido);
+
+supermercado.shift();
+console.log(supermercado);
+
+// Index
+console.log(supermercado.indexOf("arroz"));
+
+// Include
+console.log(supermercado.includes("leite")); // retorna um 'bolean'
+
+if (supermercado.includes("leite")) {
+  console.log("Tem leite na lista do mercado");
+}
+
+// #02 - Lecture: Basic Array Operations (Methods)
+const neighbours = ["Portugal", "França"];
+
+neighbours.push("Utopia");
+neighbours.pop();
+
+if (neighbours.includes("Germany")) {
+  console.log("Tem a Alemanha como vizinho");
+} else {
+  console.log("Provavelmente não é um país da Europa central :D");
+}
+
+const change = neighbours.indexOf("França");
+neighbours[change] = "Suécia";
+console.log(neighbours);
+
+// #02 Challenge
+
+let bill;
+let tip;
+
+function calcTip(bill) {
+  if (bill >= 50 && bill <= 300) {
+    return (tip = bill * 0.15);
+  } else {
+    return (tip = bill * 0.2);
+  }
+}
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const total = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
+
+console.log(tips);
+console.log(total);
+*/
