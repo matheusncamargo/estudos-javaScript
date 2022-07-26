@@ -717,3 +717,194 @@ const total = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
 console.log(tips);
 console.log(total);
 */
+
+/*****************************  
+ 
+
+ JS Fundamentals PT 02 - III
+
+
+ ****************************/
+/*
+//#03 Data Structure: Objects - usar para dados não estruturados (ordem não importa)
+
+// Object
+const matheus = {
+  firstName: "Matheus",
+  lastName: "Camargo",
+  job: "Copywriter",
+  age: 2022 - 1994,
+  friends: ["Jordan", "Steven", "Mike"],
+};
+
+console.log(matheus);
+console.log(matheus.job);
+console.log(matheus["age"]);
+
+const nameKey = "Name";
+console.log(matheus["first" + nameKey]);
+console.log(matheus["last" + nameKey]);
+
+const interestedIn = prompt(
+  "O que você quer saber sobre o Matheus? Escolha entre: firstName, lastName, job, age, friends"
+);
+
+// console.log(matheus.interestedIn); errado -> undefined
+
+if (matheus[interestedIn]) {
+  console.log(matheus[interestedIn]); // correto
+} else {
+  console.log("Digite um valor correto");
+}
+
+matheus.location = "Brasil";
+matheus["email"] = "mthnog@gmail.com";
+
+console.log(matheus);
+
+// Small Challenge
+console.log(
+  `${matheus.firstName} tem ${matheus.friends.length} amigos seu melhor amigo é ${matheus.friends[0]} `
+);
+
+
+// Lecture: Introduction to Objects / Dot vs Bracket Notation
+const myCountry = {
+  country: "Brasil",
+  capital: "Brasília",
+  language: "Português",
+  population: 220,
+  neighbours: ["Uruguai", "Paraguai", "Argentina", "Colômbia", "Venezuela"],
+};
+
+myCountry.population = 222;
+myCountry["population"] = 218;
+
+console.log(
+  `${myCountry.country} tem ${myCountry.population} de habitantes, fala ${myCountry["language"]}, sua capital é ${myCountry["capital"]} e possui ${myCountry.neighbours.length} vizinhos`
+);
+
+console.log(myCountry);
+
+
+// Object Methods
+const matheus = {
+  firstName: "Matheus",
+  lastName: "Camargo",
+  job: "copywriter",
+  birthYear: 1994,
+  friends: ["Jordan", "Steven", "Mike"],
+  hasDriveLicence: true,
+
+  //#### 01
+  // calcAge: function (birthYear) {
+  //   return 2022 - birthYear;
+  // },
+
+  // ### 02
+  // calcAge: function () {
+  //   console.log(this);
+  //   return 2022 - this.birthYear;
+  // },
+
+  // ### 03 ###
+  calcAge: function () {
+    console.log(this);
+    this.age = 2022 - this.birthYear;
+    return this.age;
+  },
+};
+
+console.log(matheus.calcAge());
+console.log(matheus.age);
+// console.log(matheus["calcAge"](matheus["birthYear"]));
+
+
+// Small Challenge
+const matheus = {
+  firstName: "Matheus",
+  lastName: "Camargo",
+  job: "copywriter",
+  birthYear: 1994,
+  friends: ["Jordan", "Steven", "Mike"],
+  hasDriveLicence: true,
+
+  calcAge: function () {
+    console.log(this);
+    this.age = 2022 - this.birthYear;
+    return this.age;
+  },
+
+  summay: function () {
+    return `${this.firstName} tem ${this.calcAge()} anos e trabalha como ${
+      this.job
+    } ${
+      this.hasDriveLicence
+        ? "tem carteira de motorista"
+        : "não tem carteira de motorista"
+    }`;
+  },
+};
+
+console.log(matheus.summay());
+
+
+// Lecture: Object Methods
+const myCountry = {
+  country: "Brasil",
+  capital: "Brasília",
+  language: "Português",
+  population: 220,
+  neighbours: ["Uruguai", "Paraguai", "Argentina", "Colômbia", "Venezuela"],
+
+  describe: function () {
+    return `${this.country} tem ${this.population} milhões de habitantes, falam ${this.language}, sua capital é ${this.capital} e possui ${this.neighbours.length} vizinhos `;
+  },
+
+  checkIsland: function () {
+    this.isIsland = this.neighbours.length === 0 ? true : false;
+    return this.isIsland;
+  },
+};
+
+console.log(myCountry.describe());
+console.log(myCountry.checkIsland());
+
+/*
+// Coding Challenge #3
+const mark = {
+  fullName: "Mark Miller",
+  weights: 78,
+  height: 1.69,
+
+  calcBMI: function () {
+    return this.weights / this.height ** 2;
+  },
+};
+
+const johns = {
+  fullName: "John Smith",
+  weights: 92,
+  height: 1.95,
+
+  calcBMI: function () {
+    return this.weights / this.height ** 2;
+  },
+};
+
+const johnBMI = johns.calcBMI();
+const markBMI = mark.calcBMI();
+
+const higherBMI =
+  johnBMI > markBMI
+    ? `O BMI do John ${johnBMI} é mais alto que o do Mark ${markBMI}`
+    : `O BMI do Mark ${markBMI} é mais alto que o do John ${johnBMI}`;
+
+console.log(higherBMI);
+
+/*****************************  
+ 
+ JS Fundamentals PT 02 - IV
+
+ ****************************/
+/*
