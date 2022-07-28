@@ -908,3 +908,148 @@ console.log(higherBMI);
 
  ****************************/
 /*
+
+// Interation: "For" loop
+
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Esse é o for loop ${rep} `);
+}
+
+// Lecture: The for loop
+for (let voter = 1; voter <= 50; voter++) {
+  console.log(`O eleitor número ${voter} está votando nesse momento`);
+}
+
+// Lopping Arrays (Break / Cotinuing)
+const matheus = [
+  "Matheus",
+  "Camargo",
+  "Copywriter",
+  2022 - 1994,
+  ["Jordan", "Steven", "Mike"],
+  false,
+];
+
+const types = [];
+
+for (let i = 0; i < matheus.length; i++) {
+  //Lendo a array "matheus"
+  console.log(matheus[i], typeof matheus[i]);
+
+  //Preenchendo um array
+  types[i] = typeof matheus[i];
+
+  //Outra forma de preencher o array
+  //types.push(typeof matheus[i]);
+}
+
+console.log(types);
+
+//Criando, percorrendo e adicionando elementos no array com "for" - IMPORTANTE -
+const years = [1994, 1992, 1980, 1970];
+let ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2022 - years[i]);
+}
+
+console.log(ages);
+
+// Continue and Break
+const matheus = [
+  "Matheus",
+  "Camargo",
+  "Copywriter",
+  2022 - 1994,
+  ["Jordan", "Steven", "Mike"],
+  false,
+];
+
+console.log("####### SOMENTE STRINGS ####### ");
+for (let i = 0; i < matheus.length; i++) {
+  if (typeof matheus[i] !== "string") continue;
+
+  console.log(matheus[i], typeof matheus[i]);
+}
+
+console.log("####### NÚMEROS / BREAK ####### ");
+for (let i = 0; i < matheus.length; i++) {
+  if (typeof matheus[i] === "number") break;
+
+  console.log(matheus[i], typeof matheus[i]);
+}
+
+// Lecutre: Looping Arrays, Breaking and Continuing
+
+//Função anteriormente feita
+function percentageOfWorld1(population) {
+  return (population / 7900) * 100;
+}
+
+// Arrays
+const populations = [20, 50, 90];
+const percentage2 = [];
+
+// For looping
+for (let i = 0; i < populations.length; i++) {
+  percentage2.push(percentageOfWorld1(populations[i]));
+}
+
+// #################################
+
+// Comprar com isso:
+function percentageOfWorld1(population) {
+  return (population / 7900) * 100;
+}
+
+const brazilPercentage = percentageOfWorld1(220);
+const venezuelaPercentage = percentageOfWorld1(50);
+const uruguaiPercentage = percentageOfWorld1(30);
+
+console.log(brazilPercentage, uruguaiPercentage, venezuelaPercentage);
+
+// #################################
+
+// Looping backwards and loops in loops
+const matheus = [
+  "Matheus",
+  "Camargo",
+  "Copywriter",
+  2022 - 1994,
+  ["Jordan", "Steven", "Mike"],
+];
+
+for (let i = matheus.length - 1; i >= 0; i--) {
+  console.log([i], matheus[i]);
+}
+
+//Loop inside of a loop
+for (let x = 1; x <= 3; x++) {
+  console.log(`----------- Exercício número ${x}`);
+  for (let i = 1; i <= 5; i++) {
+    console.log(`Exerício: ${x} # Repetição:${i} 🟣`);
+  }
+}
+
+
+//Lecutre: Looping Backwards and Loops in Loops
+
+const listOfNeighbours = [
+  ["Canada", "Mexico"],
+  ["Spain"],
+  ["Norway", "Sweden", "Russia"],
+];
+
+for (let i = 0; i < listOfNeighbours.length; i++) {
+  for (let x = 0; x < listOfNeighbours[i].length; x++) {
+    console.log(`Neighbour: ${listOfNeighbours[i][x]}`);
+  }
+}
+
+/*****************************  
+ 
+ JS Fundamentals PT 02 - V
+
+
+ ****************************/
+/*
