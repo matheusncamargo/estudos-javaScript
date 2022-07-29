@@ -1053,3 +1053,89 @@ for (let i = 0; i < listOfNeighbours.length; i++) {
 
  ****************************/
 /*
+
+// While Loop
+let rep = 1;
+
+while (rep <= 10) {
+  console.log(`${rep}`);
+  rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+  console.log(dice);
+  dice = Math.trunc(Math.random() * 6) + 1;
+}
+
+
+//Lecture: The While loop
+//Função anteriormente feita
+function percentageOfWorld1(population) {
+  return (population / 7900) * 100;
+}
+
+// Arrays
+const populations = [20, 50, 90];
+const percentage3 = [];
+
+// #01 - For looping
+for (let i = 0; i < populations.length; i++) {
+  percentage3.push(percentageOfWorld1(populations[i]));
+}
+
+// #02 - While looping
+let x = 0;
+while (x < populations.length) {
+  percentage3.push(percentageOfWorld1(populations[x]));
+  x++;
+}
+
+console.log(percentage3);
+
+
+// Coding challenge #4
+
+// Função anteriormente escrita
+let tip;
+
+function calcTip(bill) {
+  if (bill >= 50 && bill <= 300) {
+    tip = bill * 0.15;
+  } else {
+    tip = bill * 0.2;
+  }
+  return tip;
+}
+
+// Arrays
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+let tipArray = [];
+let totalValues = [];
+
+// For looping
+for (let i = 0; i < bills.length; i++) {
+  tipArray.push(calcTip(bills[i]));
+  totalValues.push(bills[i] + tipArray[i]);
+}
+
+// Output
+console.log(bills);
+console.log(tipArray);
+console.log(totalValues);
+
+// Coding bonus: Calcular a média de um array
+
+function calcAverage(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+
+  return sum / arr.length;
+}
+
+console.log(calcAverage(bills));
+console.log(calcAverage([25, 45, 105]));
+*/
