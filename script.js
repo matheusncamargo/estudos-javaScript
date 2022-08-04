@@ -1139,3 +1139,122 @@ function calcAverage(arr) {
 console.log(calcAverage(bills));
 console.log(calcAverage([25, 45, 105]));
 */
+
+/*********************
+
+Developer Skills
+
+********************/
+/*
+// BUG, FIXME -> Ambos feitos em .prettierrc (mesma pasta)
+
+// Problema #01:
+// Dado um array de temperatura de um dia, calcule a amplitude da temperatura. Algumas vezes, o sensor pode dar erro.
+
+// 1) Entendendo o problema.
+// - Como calcular a amplitude da temperatura?
+// R: calculando a difereça entre a temperatura máxima e mínima
+// - Como calcular a temperatura máxima e mínima?
+// - O que é "error" e o que fazer quando isso aparecer?
+
+// 2) Quebrar o problema em sub-problemas.
+// - Como ignorar erros?
+// - Encontrar o máximo valor da temperatura no array
+// - Encontrar o mínimo valor da temperatura no array
+// - Subtrair mínimo do maior (amplitude) e retornar isso.
+
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 100];
+const temperatures2 = [15, 20, 30, 5, 0, 'error', -1, -45];
+
+const calcTempAmplitude = function (temps1, temps2) {
+  const temps = temps1.concat(temps2); // juntar 2 arrays
+
+  let maxValue = temps[0];
+  let minValue = temps[0];
+
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
+
+    if (typeof currentTemp !== 'number') continue;
+
+    if (currentTemp > maxValue) maxValue = currentTemp;
+    if (currentTemp < minValue) minValue = currentTemp;
+  }
+
+  console.log(maxValue, minValue);
+  return maxValue - Math.abs(minValue);
+};
+
+console.log(calcTempAmplitude(temperatures, temperatures2));
+console.log(calcTempAmplitude([-30, 20, 50], [10, 20, 300]));
+
+// for (let i = 0; i < temperatures.length; i++) {
+//   if (temperatures[i] > maxValue) {
+//     maxValue = temperatures[i];
+//   }
+// }
+
+// for (let i = 0; i < temperatures.length; i++) {
+//   if (temperatures[i] < minValue) {
+//     minValue = temperatures[i];
+//   }
+// }
+
+// Problema #02:
+// A função deve receber 2 arrays "temps"
+
+// 1) Entendendo o problema
+// Com 2 arrays, precisaremos implementar a função duas vezes? Não! É só juntar os 2 arrays.
+
+// 2) Quebrando o problema em sub-problemas
+// Como juntar 2 ou mais arrays em 1?
+// Utilizar concat();
+
+// Solução na const "temps"
+
+/*********************
+
+Developer Skills - II
+
+ ********************/
+
+function mensurarKelvin() {
+  const temperature = {
+    unity: 'celsius',
+    type: 'temp',
+    value: Number(prompt('Temperauta em celsius: ')),
+  };
+
+  // console.log(temperature);
+  // console.log(temperature.value);
+  console.table(temperature);
+  // debugger;
+
+  const kelvin = temperature.value + 273;
+  return kelvin;
+}
+
+console.log(mensurarKelvin());
+// console.warn(mensurarKelvin());
+// console.error(mensurarKelvin());
+
+/*
+// Coding Challenge #1
+
+function printForecast(arr) {
+  const tamanhoArray = arr.length;
+  let dia = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    dia = dia + 1;
+    console.log(`${arr[i]}°C em ${dia} dias`);
+  }
+}
+
+console.log(printForecast([17, 21, 23]));
+console.log(printForecast([12, 5, -5, 0, 4]));
+
+// 1 - Imprimir os elementos do array
+// 2 - Imprimir contagem de cada elemento do array junto com o mesmo
+*/
+
