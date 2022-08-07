@@ -1217,7 +1217,7 @@ console.log(calcTempAmplitude([-30, 20, 50], [10, 20, 300]));
 Developer Skills - II
 
  ********************/
-
+/*
 function mensurarKelvin() {
   const temperature = {
     unity: 'celsius',
@@ -1256,5 +1256,48 @@ console.log(printForecast([12, 5, -5, 0, 4]));
 
 // 1 - Imprimir os elementos do array
 // 2 - Imprimir contagem de cada elemento do array junto com o mesmo
+*/
+
+/*********************
+
+DOM
+
+ ********************/
+
+/*
+// console.log(document.querySelector('.message').textContent);
+
+document.querySelector('.message').textContent = 'Número correto 🏆';
+
+// console.log(document.querySelector('.message').textContent);
+document.querySelector('.guess').value = 13;
+
+document.querySelector('.number').textContent =
+  document.querySelector('.guess').value;
+
+document.querySelector('.score').textContent =
+  document.querySelector('.guess').value;
+
+
+const secretNumber = Math.trunc(Math.random() * 20 + 1);
+document.querySelector('.number').textContent = secretNumber;
+
+document.querySelector('.check').addEventListener('click', function () {
+  const guess = Number(document.querySelector('.guess').value);
+
+  console.log(guess, typeof guess);
+
+  if (!guess) {
+    document.querySelector('.message').textContent = '⛔ Não é um número ';
+  } else if (guess === secretNumber) {
+    document.querySelector('.message').textContent = '✅ Acertou ! ';
+  } else if (guess > secretNumber) {
+    document.querySelector('.message').textContent = 'Chutou muito alto';
+  } else if (guess < secretNumber) {
+    document.querySelector('.message').textContent = 'Chutou muito baixo';
+  }
+
+  //   document.querySelector('.message').textContent = 'Número correto 🏆';
+});
 */
 
