@@ -1263,13 +1263,13 @@ console.log(printForecast([12, 5, -5, 0, 4]));
 DOM
 
  ********************/
-
 /*
 // console.log(document.querySelector('.message').textContent);
 
 document.querySelector('.message').textContent = 'Número correto 🏆';
 
 // console.log(document.querySelector('.message').textContent);
+
 document.querySelector('.guess').value = 13;
 
 document.querySelector('.number').textContent =
@@ -1277,27 +1277,70 @@ document.querySelector('.number').textContent =
 
 document.querySelector('.score').textContent =
   document.querySelector('.guess').value;
-
+*/
 
 const secretNumber = Math.trunc(Math.random() * 20 + 1);
-document.querySelector('.number').textContent = secretNumber;
+// document.querySelector('.number').textContent = secretNumber;
+
+let score = 20;
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
   console.log(guess, typeof guess);
 
+  // Quando o jogador não colocar um número
   if (!guess) {
     document.querySelector('.message').textContent = '⛔ Não é um número ';
+
+    // Quando o jogador acertar o número
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '✅ Acertou ! ';
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('.number').style.width = '30rem';
+    document.querySelector('.number').textContent = secretNumber;
+
+    // Quando o número é muito alto
   } else if (guess > secretNumber) {
-    document.querySelector('.message').textContent = 'Chutou muito alto';
+    if (score > 1) {
+      document.querySelector('.message').textContent = '🔥 Chutou muito alto';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = 'Você perdeu';
+      document.querySelector('.score').textContent = '0';
+      document.querySelector('body').style.backgroundColor = 'red';
+    }
+
+    // Quando o número é muito baixo
   } else if (guess < secretNumber) {
-    document.querySelector('.message').textContent = 'Chutou muito baixo';
+    if (score > 0) {
+      document.querySelector('.message').textContent = '❄ Chutou muito baixo';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = 'Você perdeu';
+      document.querySelector('.score').textContent = '0';
+      document.querySelector('body').style.backgroundColor = 'red';
+    }
   }
-
-  //   document.querySelector('.message').textContent = 'Número correto 🏆';
 });
-*/
 
+/*******************
+
+ Challenge #01
+
+********************/
+
+document.querySelector('.again').addEventListener('click', function () {
+  const secretNumber = Math.trunc(Math.random() * 20 + 1);
+  let score = 20;
+
+  document.querySelector('.message').textContent = 'Comece a adivinhar...';
+  document.querySelector('.score').textContent = '20';
+  document.querySelector('.guess').value = '';
+  document.querySelector('.number').textContent = '?';
+
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+});
