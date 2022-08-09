@@ -1277,33 +1277,62 @@ document.querySelector('.number').textContent =
 
 document.querySelector('.score').textContent =
   document.querySelector('.guess').value;
-*/
 
-const secretNumber = Math.trunc(Math.random() * 20 + 1);
+/******************************
+ 
+ JOGO - Adivinhe o número
+
+ ******************************/
+
+let secretNumber = Math.trunc(Math.random() * 20 + 1);
 // document.querySelector('.number').textContent = secretNumber;
 
 let score = 20;
+let highscore = 0;
+
+// Função para display de mensagem (reduzindo código)
+function displayMessage(message) {
+  document.querySelector('.message').textContent = message;
+}
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
-  console.log(guess, typeof guess);
+  // console.log(guess, typeof guess);
 
   // Quando o jogador não colocar um número
   if (!guess) {
-    document.querySelector('.message').textContent = '⛔ Não é um número ';
+    displayMessage('⛔ Não é um número ');
 
     // Quando o jogador acertar o número
   } else if (guess === secretNumber) {
-    document.querySelector('.message').textContent = '✅ Acertou ! ';
-    document.querySelector('body').style.backgroundColor = '#60b347';
-    document.querySelector('.number').style.width = '30rem';
+    displayMessage('✅ Acertou ! ');
     document.querySelector('.number').textContent = secretNumber;
 
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('.number').style.width = '30rem';
+
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
+
+    // Quando o número é diferente do número secreto
+  } else if (guess !== secretNumber) {
+    if (score > 1) {
+      displayMessage(guess > secretNumber ? '🔥 Muito alto' : '❄ Muito baixo');
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      displayMessage('Você perdeu');
+      document.querySelector('.score').textContent = '0';
+      document.querySelector('body').style.backgroundColor = 'red';
+    }
+    /*
     // Quando o número é muito alto
   } else if (guess > secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = '🔥 Chutou muito alto';
+      document.querySelector('.message').textContent = '🔥 Muito alto';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
@@ -1314,8 +1343,8 @@ document.querySelector('.check').addEventListener('click', function () {
 
     // Quando o número é muito baixo
   } else if (guess < secretNumber) {
-    if (score > 0) {
-      document.querySelector('.message').textContent = '❄ Chutou muito baixo';
+    if (score > 1) {
+      document.querySelector('.message').textContent = '❄ Muito baixo';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
@@ -1323,6 +1352,7 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = '0';
       document.querySelector('body').style.backgroundColor = 'red';
     }
+    */
   }
 });
 
@@ -1333,11 +1363,11 @@ document.querySelector('.check').addEventListener('click', function () {
 ********************/
 
 document.querySelector('.again').addEventListener('click', function () {
-  const secretNumber = Math.trunc(Math.random() * 20 + 1);
-  let score = 20;
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20 + 1);
 
-  document.querySelector('.message').textContent = 'Comece a adivinhar...';
-  document.querySelector('.score').textContent = '20';
+  displayMessage('Comece a adivinhar...');
+  document.querySelector('.score').textContent = score;
   document.querySelector('.guess').value = '';
   document.querySelector('.number').textContent = '?';
 
