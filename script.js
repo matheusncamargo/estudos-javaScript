@@ -1382,12 +1382,42 @@ DOM - II
 
  ********************/
 
+// Constantes
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 
 const btnOpenModal = document.querySelectorAll('.show-modal');
 const btnCloseModal = document.querySelector('.close-modal');
 
+// Funções
+
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+  // modal.style.display = 'block';
+};
+
+// Chamando as funções
+
+// Abrir caixas
 for (let i = 0; i < btnOpenModal.length; i++) {
-  console.log(btnOpenModal[i].textContent);
+  btnOpenModal[i].addEventListener('click', openModal);
 }
+
+// Fechar caixas
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', function (e) {
+  // console.log(e.key);
+
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
+
