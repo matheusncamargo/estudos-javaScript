@@ -878,7 +878,8 @@ const mark = {
   height: 1.69,
 
   calcBMI: function () {
-    return this.weights / this.height ** 2;
+    this.BMI = this.weights / this.height ** 2;
+    return this.BMI;
   },
 };
 
@@ -888,17 +889,15 @@ const johns = {
   height: 1.95,
 
   calcBMI: function () {
-    return this.weights / this.height ** 2;
+    this.BMI = this.weights / this.height ** 2;
+    return this.BMI;
   },
 };
 
-const johnBMI = johns.calcBMI();
-const markBMI = mark.calcBMI();
-
 const higherBMI =
-  johnBMI > markBMI
-    ? `O BMI do John ${johnBMI} é mais alto que o do Mark ${markBMI}`
-    : `O BMI do Mark ${markBMI} é mais alto que o do John ${johnBMI}`;
+  johns.calcBMI() > mark.calcBMI()
+    ? `O BMI do John ${johns.BMI} é mais alto que o do Mark ${mark.BMI}`
+    : `O BMI do Mark ${mark.BMI} é mais alto que o do John ${johns.BMI}`;
 
 console.log(higherBMI);
 
