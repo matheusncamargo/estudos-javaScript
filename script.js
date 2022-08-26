@@ -1420,3 +1420,31 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+/****************************
+
+PIG GAME - Random Number
+
+*****************************/
+//Constantes
+
+const dice = document.querySelector('.dice');
+const btnRoll = document.querySelector('.btn--roll');
+
+let diceNumber;
+let current = 0;
+
+document.getElementById('score--0').textContent = 0;
+document.getElementById('score--1').textContent = 0;
+
+dice.classList.add('hidden');
+
+btnRoll.addEventListener('click', function () {
+  const randomNumber = Math.trunc(Math.random() * 6 + 1);
+
+  diceNumber = `dice-${randomNumber}.png`;
+  dice.classList.remove('hidden');
+  dice.src = diceNumber;
+
+  current += randomNumber;
+  document.getElementById('current--0').textContent = current;
+});
