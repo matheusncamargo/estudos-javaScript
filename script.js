@@ -1425,26 +1425,97 @@ document.addEventListener('keydown', function (e) {
 PIG GAME - Random Number
 
 *****************************/
+'use strict';
 //Constantes
-
 const dice = document.querySelector('.dice');
+
 const btnRoll = document.querySelector('.btn--roll');
+const btnHold = document.querySelector('.btn--hold');
+const btnNewGame = document.querySelector('.btn--new');
+
+const player0 = document.querySelector('.player--0');
+const player1 = document.querySelector('.player--1');
 
 let diceNumber;
 let current = 0;
 
+let scores = [0, 0];
+
+//Início do jogo
 document.getElementById('score--0').textContent = 0;
 document.getElementById('score--1').textContent = 0;
 
+let activePlayer = 0;
+let disabledPlayer = 1;
+
 dice.classList.add('hidden');
 
+//Botão "Roll Dice"
 btnRoll.addEventListener('click', function () {
+  //Random number 1-6
   const randomNumber = Math.trunc(Math.random() * 6 + 1);
-
   diceNumber = `dice-${randomNumber}.png`;
+
+  //Mostrando a imagem do dado gerado
   dice.classList.remove('hidden');
   dice.src = diceNumber;
 
-  current += randomNumber;
-  document.getElementById('current--0').textContent = current;
+  //Se dado = 1
+  if (randomNumber === 1) {
+    //Resetando o score
+    current = 0;
+    document.getElementById(`current--${activePlayer}`).textContent = current;
+
+    //Alterando o display do jogador selecionado
+    player0.classList.toggle('player--active');
+    player1.classList.toggle('player--active');
+
+    //Alterando o jogador
+    activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+
+    // Pontuaçãoo menor que 100
+  } else if (current < 100) {
+    current += randomNumber;
+
+    document.getElementById(`current--${activePlayer}`).textContent = current;
+  }
 });
+
+//Botão "Hold"
+btnHold.addEventListener('click', function () {
+  document.getElementById(
+    `current--${activePlayer === 0 ? 0 : 1}`
+  ).textContent = 0;
+
+  scores[activePlayer] += current;
+
+  console.log(scores);
+
+  document.getElementById(`score--${activePlayer}`).textContent =
+    scores[activePlayer];
+
+  player0.classList.toggle('player--active');
+  player1.classList.toggle('player--active');
+
+  activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+
+  current = 0;
+});
+
+//Botão "New Game"
+btnNewGame.addEventListener('click', function () {
+  dice.classList.add('hidden');
+
+  current = 0;
+  scores = [0, 0];
+
+  document.getElementById('score--0').textContent = 0;
+  document.getElementById('score--1').textContent = 0;
+
+  document.getElementById('current--0').textContent = 0;
+  document.getElementById('current--1').textContent = 0;
+
+  player0.classList.add('player--active');
+  player1.classList.remove('player--active');
+});
+
